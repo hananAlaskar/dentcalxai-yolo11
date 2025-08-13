@@ -28,3 +28,18 @@ kaggle.json
 
 # OS
 .DS_Store
+
+# macOS system files
+._*
+.AppleDouble
+.LSOverride
+Icon?
+.Spotlight-V100/
+.Trashes
+.fseventsd
+
+
+# Windows system files (sometimes appear on shared drives)
+[Tt]humbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
