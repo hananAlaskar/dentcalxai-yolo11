@@ -1,0 +1,8 @@
+# dental_data.yaml
+path: /Volumes/L/L_PHAS0077/yolo/dental_radiography_yolo
+train: /Volumes/L/L_PHAS0077/yolo/dental_radiography_yolo/train/images
+val: /Volumes/L/L_PHAS0077/yolo/dental_radiography_yolo/valid/images
+test: /Volumes/L/L_PHAS0077/yolo/dental_radiography_yolo/test
+
+nc: 4  # number of classes
+names: ["Cavity", "Implant", "Fillings", "Impacted Tooth"]

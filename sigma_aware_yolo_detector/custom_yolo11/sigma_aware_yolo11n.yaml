@@ -1,0 +1,20 @@
+# project_root/vanilla_yolo11n.yaml
+scale: n
+nc: 80
+anchors:
+  - [10,13,16,30,33,23]
+  - [30,61,62,45,59,119]
+  - [116,90,156,198,373,326]
+depth_multiple: 0.33
+width_multiple: 0.25
+
+backbone:
+  - [-1, 1, Conv,  [64, 3, 1]]
+  - [-1, 1, C3,    [64, 64, 1]]
+  - [-1, 2, C3,    [128, 128, 2]]
+  - [-1, 1, SPPF,  [128, 5]]
+
+head:
+  - [-1, 1, Detect, ["nc", "anchors"]]
+  - [-2, 1, Detect, ["nc", "anchors"]]
+  - [-3, 1, Detect, ["nc", "anchors"]]
