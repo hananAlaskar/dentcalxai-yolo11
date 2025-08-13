@@ -37,11 +37,8 @@ A **results-first, read-only** tour of our dental object detection & explainabil
 - [Repository Purpose](#repository-purpose)
 - [What’s Included vs Not Included](#whats-included-vs-not-included)
 - [Folder-by-Folder Guide](#folder-by-folder-guide)
-- [How to Browse Results Comfortably](#how-to-browse-results-comfortably)
-- [Reproducibility Notes (Optional)](#reproducibility-notes-optional)
 - [License](#license)
 - [Citation](#citation)
-- [Contact](#contact)
 
 ---
 
