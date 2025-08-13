@@ -1,7 +1,9 @@
 # data & artifacts
 data/
 datasets/
-runs/
+
+runs/train*/weights/
+runs/val*/weights/
 outputs/
 converted_labels/
 analysis_outputs/
