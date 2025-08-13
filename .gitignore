@@ -6,7 +6,6 @@ outputs/
 converted_labels/
 analysis_outputs/
 interpretability_methods/outputs/
-detector_yolo_calibration/calib_results_*/
 
 # weights & large files
 *.pt
