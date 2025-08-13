@@ -1,0 +1,30 @@
+# data & artifacts
+data/
+datasets/
+runs/
+outputs/
+converted_labels/
+analysis_outputs/
+interpretability_methods/outputs/
+detector_yolo_calibration/calib_results_*/
+sigma_aware_yolo_detector/predictions_*_uncert.csv
+
+# weights & large files
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npz
+*.npy
+
+# notebooks & python cache
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# secrets
+kaggle.json
+.env
+
+# OS
+.DS_Store
