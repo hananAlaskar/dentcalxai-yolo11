@@ -1,34 +1,37 @@
-
 # DentCalXAI-YOLO11 — Results-Only Showcase
 
-A **results-first, read-only** tour of our dental object detection & explainability project built around **YOLO11** . This repo is intentionally curated so you can **see the outputs in notebooks on GitHub** without needing the dataset or model weights.
+A **results-first** tour of our dental object detection & explainability project built around **YOLO11**. You can **browse outputs on GitHub**, and—if you want to reproduce locally—follow each folder’s **README** to run with your own data.
 
 > **Heads-up**
-> - The **full dataset** and **all large model files/weights** are **not included**.
-> - The code here is **not meant to be runnable** out of the box; scripts are kept for reference and context.
+> - The **full dataset** and **large model weights** are **not included**.
+> - Notebooks render saved outputs on GitHub. Local reproduction is possible via the **per-folder READMEs** (you provide data/weights and set paths).
 
 ---
 
-## Quick Links (Open to View Results)
+## Quick Links (open to view results)
 
 - **Dataset Exploration**  
   - Notebook: [`explore_data/visual_analysis.ipynb`](explore_data/visual_analysis.ipynb)  
-  - PDF summary: [`explore_data/visual_analysis.pdf`](explore_data/visual_analysis.pdf)
+  - PDF summary: [`explore_data/visual_analysis.pdf`](explore_data/visual_analysis.pdf)  
+  - **Docs**: [`explore_data/README.md`](explore_data/README.md)
 
 - **Model Training (YOLO11 / YOLOv8)**  
   - Notebook: [`model_training/run_yolo.ipynb`](model_training/run_yolo.ipynb)  
-  - Metrics snapshot: [`model_training/validation_summary.csv`](model_training/validation_summary.csv)
+  - Metrics snapshot: [`model_training/validation_summary.csv`](model_training/validation_summary.csv)  
+  - **Docs**: [`model_training/README.md`](model_training/README.md)
 
 - **Detector Calibration (ECE, Reliability)**  
-  - Notebook: [`detector_yolo_calibration/view_dector_calibration.ipynb`](detector_yolo_calibration/view_dector_calibration.ipynb)
+  - Notebook: [`detector_yolo_calibration/view_dector_calibration.ipynb`](detector_yolo_calibration/view_dector_calibration.ipynb)  
+  - **Docs**: [`detector_yolo_calibration/README.md`](detector_yolo_calibration/README.md)
 
 - **Sigma-Aware Uncertainty**  
-  - Notebook: [`sigma_aware_yolo_detector/sigma_yolo_workflow.ipynb`](sigma_aware_yolo_detector/sigma_yolo_workflow.ipynb)
+  - Notebook: [`sigma_aware_yolo_detector/sigma_yolo_workflow.ipynb`](sigma_aware_yolo_detector/sigma_yolo_workflow.ipynb)  
+  - **Docs**: [`sigma_aware_yolo_detector/README.md`](sigma_aware_yolo_detector/README.md)
 
 - **Explainability (Grad-CAM / LIME / SHAP)**  
   - Notebook: [`interpretability_methods/interpretability_Result.ipynb`](interpretability_methods/interpretability_Result.ipynb)  
-  - Saved figures: [`interpretability_methods/interpretability_plots/`](interpretability_methods/interpretability_plots/)
-
+  - Saved figures: [`interpretability_methods/interpretability_plots/`](interpretability_methods/interpretability_plots/)  
+  - **Docs**: [`interpretability_methods/README.md`](interpretability_methods/README.md)
 
 ---
 
@@ -37,6 +40,7 @@ A **results-first, read-only** tour of our dental object detection & explainabil
 - [Repository Purpose](#repository-purpose)
 - [What’s Included vs Not Included](#whats-included-vs-not-included)
 - [Folder-by-Folder Guide](#folder-by-folder-guide)
+- [Local Reproduction (high level)](#local-reproduction-high-level)
 - [License](#license)
 - [Citation](#citation)
 
@@ -46,7 +50,7 @@ A **results-first, read-only** tour of our dental object detection & explainabil
 
 - Provide **clear, browsable evidence** of dataset characteristics, model behavior, calibration quality, uncertainty patterns, and explainability overlays.
 - Keep the repo **lightweight** and **viewable online**, avoiding large data files or private assets.
-- Maintain **context scripts** for readers who want to understand how figures/metrics were generated (even though they are not meant to be run here).
+- Offer **per-folder READMEs** so you can reproduce locally with your own data/weights (no code rewrites; paths are configurable).
 
 ---
 
@@ -55,46 +59,69 @@ A **results-first, read-only** tour of our dental object detection & explainabil
 **Included**
 - Notebooks with **saved outputs** (plots, tables, image overlays).
 - Lightweight CSV summaries and configuration stubs.
-- Reference scripts to show methodology and pipeline structure.
+- Reference scripts showing methodology and pipeline structure.
 
 **Not Included**
 - **Full dataset** (private/large).
-- **Model weights & checkpoints** (e.g., `yolo11s.pt`, `yolov8n.pt`).
+- **Model weights/checkpoints** (e.g., `*.pt`).
 
-These exclusions are intentional to keep the repository focused on **result viewing**.
+These exclusions keep the repository focused on **result viewing**.
 
 ---
 
 ## Folder-by-Folder Guide
 
-**Open these notebooks first — they already include saved outputs (no execution needed).**
+Open the notebooks to view results. For local runs, read each folder’s **README**.
 
-| Folder | Open first | Key visuals & metrics |
-|---|---|---|
-| `explore_data/` | [`visual_analysis.ipynb`](explore_data/visual_analysis.ipynb) · [`visual_analysis.pdf`](explore_data/visual_analysis.pdf) | Class distributions, sample images/masks, embeddings/PCA snapshots |
-| `model_training/` | [`run_yolo.ipynb`](model_training/run_yolo.ipynb) · [`validation_summary.csv`](model_training/validation_summary.csv) | Train/val curves, eval tables, sample detections |
-| `detector_yolo_calibration/` | [`view_dector_calibration.ipynb`](detector_yolo_calibration/view_dector_calibration.ipynb) | Reliability diagrams, ECE/MCE, per-class calibration curves |
-| `sigma_aware_yolo_detector/` | [`sigma_yolo_workflow.ipynb`](sigma_aware_yolo_detector/sigma_yolo_workflow.ipynb) | σ-uncertainty histograms, confidence–σ trends, qualitative examples | 
-| `interpretability_methods/` | [`interpretability_Result.ipynb`](interpretability_methods/interpretability_Result.ipynb) · [`interpretability_plots/`](interpretability_methods/interpretability_plots/) | Grad-CAM/LIME/SHAP overlays, aggregate plots |
+- `explore_data/`  
+  - Start: `visual_analysis.ipynb` · `visual_analysis.pdf`  
+  - Docs: `explore_data/README.md` (generalized run steps, path config, `_annotations.csv` schema)  
+  - Highlights: class distributions, masks, embeddings/PCA snapshots.
 
-**Reference scripts (context only, not meant to run here):**
+- `model_training/`  
+  - Start: `run_yolo.ipynb` · `validation_summary.csv`  
+  - Docs: `model_training/README.md` (train via our `trainer.train`, **COCO→YOLO** converter, config-driven paths, visualize)  
+  - Highlights: curves, eval tables, saved detections.
+
+- `detector_yolo_calibration/`  
+  - Start: `view_dector_calibration.ipynb`  
+  - Docs: `detector_yolo_calibration/README.md` (overall & per-class calibration via CLI; ECE/MCE, reliability)  
+  - Highlights: reliability diagrams, per-class calibration curves.
+
+- `sigma_aware_yolo_detector/`  
+  - Start: `sigma_yolo_workflow.ipynb`  
+  - Docs: `sigma_aware_yolo_detector/README.md` (train via `train_with_sigma.py` from base YAML; extract σ-aware predictions; calibrate & analyze)  
+  - Highlights: σ-histograms, confidence–σ trends, CSV exports for val/test.
+
+- `interpretability_methods/`  
+  - Start: `interpretability_Result.ipynb` · figures under `interpretability_plots/`  
+  - Docs: `interpretability_methods/README.md` (Overlay generation → Quantitative analysis → optional example-level **Grad-CAM/LIME/SHAP**; notes on hardcoded image/path selections and how to change them)  
+  - Highlights: overlay panels, σ-aware summaries, example explainers.
+
+**Reference scripts (context only):**
 - `model_training/{trainer.py,evaluator.py,config.py,visualizer.py}`
 - `detector_yolo_calibration/{unified_yolo_calibration_adaptive.py,calib_per_class.py}`
-- `interpretability_methods/{gradcam_yolo_dental.py,shap_yolo_explainer.py,quantitative_analysis_plots.py}`
+- `sigma_aware_yolo_detector/train_with_sigma.py`
+- `interpretability_methods/{generate_interpretability_plots_save.py,gradcam_yolo_dental.py,run_gradcam_lime.py,shap_yolo_explainer.py,quantitative_analysis_plots.py}`
 - `explore_data/{segmentation_utils.py,annotation_visualizer.py}`
 
+---
 
-**At a glance — what to look for**
-- **EDA**: category distributions, sample images, segmentation masks, embedding visualizations.
-- **Training**: curves, evaluation tables, qualitative detections (saved as images in notebook outputs).
-- **Calibration**: reliability diagrams, ECE/MCE metrics (before/after), per-class curves.
-- **Uncertainty**: σ-aware training artifacts, histograms, confidence vs. uncertainty relationships.
-- **Explainability**: Grad-CAM/LIME/SHAP overlays, per-class interpretability summaries.
+## Local Reproduction (high level)
 
+- **Paths & config**: folders are **config-driven**. Most READMEs support:
+  - `YOLO_PROJECT_ROOT` (env var) or simple **symlinks** to mirror author paths.
+  - `config.py` values such as `DATA_YAML`, `DEFAULT_MODEL`, `DEVICE`, `RUNS_DIR`.
+- **COCO→YOLO**: if your labels are in COCO JSON, convert with our `converter.coco_to_yolo` (see `model_training/README.md`).
+- **Devices**: Apple Silicon uses `device="mps"`; otherwise choose `cuda`/`cpu`. Each README shows where to set this.
+
+> For exact commands/arguments and per-stage inputs/outputs, see the **folder READMEs** linked above.
+
+---
 
 ## License
 
-TBD (e.g., MIT). A `LICENSE` file will be added to clarify reuse. Until then, please treat this as **All Rights Reserved**.
+TBD (e.g., MIT). A `LICENSE` will be added to clarify reuse. Until then, please treat this as **All Rights Reserved**.
 
 ---
 
@@ -114,6 +141,3 @@ note   = {GitHub repository: dentcalxai-yolo11}
 ```
 
 A formal entry will be updated once the report/paper is finalized.
-
----
-
